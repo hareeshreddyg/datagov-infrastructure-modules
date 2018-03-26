@@ -1,6 +1,6 @@
 ## web application load balancer ##
 resource "aws_alb" "web_alb" {
-  name            = "web-alb-tf"
+  name            = "web-alb-test-tf"
   internal        = false
   security_groups = ["${aws_security_group.alb-sg.id}"]
   subnets         = ["${data.terraform_remote_state.vpc.public_subnets}"]
@@ -33,7 +33,7 @@ resource "aws_alb_target_group" "web_tg" {
 
 ## solr application load balancer ##
 resource "aws_alb" "solr_alb" {
-  name            = "solr-alb-tf"
+  name            = "solr-alb-test-tf"
   internal        = true
   security_groups = ["${aws_security_group.solr-alb-sg.id}"]
   #subnets         = ["${data.terraform_remote_state.vpc.public_subnets}", ["${data.terraform_remote_state.vpc.private_subnets}"]]
