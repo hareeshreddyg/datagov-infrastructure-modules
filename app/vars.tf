@@ -21,7 +21,7 @@ variable "web_lc_name" {
 }
 
 variable "key_name" {
-  default = "datagov-test"
+  default = "datagov-test-env"
 }
 
 ## web ##
