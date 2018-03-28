@@ -2,20 +2,12 @@
 data "aws_ami" "catalog_web" {
   most_recent = true
 
-
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
+    values = ["catalog-web*"]
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"]
-
-
+  owners = ["587807691409"]
 }
 
 data "template_file" "web_user_data" {
@@ -32,7 +24,6 @@ data "template_file" "web_user_data" {
 resource "aws_launch_configuration" "web_lc" {
   name_prefix                 = "catalog-web-tf-"
   image_id                    = "${data.aws_ami.catalog_web.id}"
-# image_id                    = "ami-1656cb6c"
   instance_type               = "${var.web_lc_instance_type}"
   associate_public_ip_address = true
   key_name                    = "${var.key_name}"
