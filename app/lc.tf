@@ -1,13 +1,15 @@
 # web launch configuration
 data "aws_ami" "catalog_web" {
-  most_recent = true
+  most_recent = false
 
   filter {
     name   = "name"
-    values = ["catalog-web*"]
+    values = ["catalog-web-ami 2017-11-28T06-20-12"]
   }
 
   owners = ["587807691409"]
+
+
 }
 
 data "template_file" "web_user_data" {
