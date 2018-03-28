@@ -1,10 +1,10 @@
-# web launch configuration
+# web launch configuration:q!
 data "aws_ami" "catalog_web" {
   most_recent = false
 
   filter {
     name   = "name"
-    values = ["catalog-web-ami 2017-11-28T06-20-12"]
+    values = ["catalog-web*"]
   }
 
   owners = ["587807691409"]
@@ -25,7 +25,8 @@ data "template_file" "web_user_data" {
 
 resource "aws_launch_configuration" "web_lc" {
   name_prefix                 = "catalog-web-tf-"
-  image_id                    = "${data.aws_ami.catalog_web.id}"
+# image_id                    = "${data.aws_ami.catalog_web.id}"
+  image_id                    = "ami-1656cb6c"
   instance_type               = "${var.web_lc_instance_type}"
   associate_public_ip_address = true
   key_name                    = "${var.key_name}"
