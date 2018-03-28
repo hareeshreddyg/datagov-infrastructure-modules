@@ -1,13 +1,19 @@
 # web launch configuration
 data "aws_ami" "catalog_web" {
-  most_recent = false
+  most_recent = true
+
 
   filter {
     name   = "name"
-    values = ["ami-1656cb6c"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
   }
 
-  owners = ["587807691409"]
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"]
 
 
 }
