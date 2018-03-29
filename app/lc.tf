@@ -4,15 +4,10 @@ data "aws_ami" "catalog_web" {
 
 filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
+    values = ["catalog-web*"]
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["099720109477"]
+  owners = ["587807691409"]
 
 }
 
