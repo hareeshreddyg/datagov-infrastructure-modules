@@ -82,7 +82,7 @@ resource "aws_security_group" "harvester-sg" {
 # solr security group
 resource "aws_security_group" "solr-sg" {
   name        = "solr-sg-tf"
-  description = "Solr security group"
+  description = "Solr security group test"
   vpc_id      = "${data.terraform_remote_state.vpc.vpc_id}"
 
   ingress {
