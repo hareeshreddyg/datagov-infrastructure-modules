@@ -20,7 +20,7 @@ module "vpc" {
   enable_nat_gateway           = "true"
   create_database_subnet_group = "true"
 
-  azs      = ["us-east-1a", "us-east-1b"]
+  azs      = ["us-east-1a", "us-east-1b", "us-east-1c"]
 
   tags {
     "Terraform" = "true"
